@@ -45,10 +45,10 @@ public:
         auto color_21=image_data.at<cv::Vec3b>(v_max,u_min);
         auto color_22=image_data.at<cv::Vec3b>(v_max,u_max);
 
-        auto color1=(u_img-u_min)*color_11+(u_max-u_img)*color_12;
-        auto color2=(u_img-u_min)*color_21+(u_max-u_img)*color_22;
+        auto color1=(u_img-u_min)*color_12+(u_max-u_img)*color_11;
+        auto color2=(u_img-u_min)*color_22+(u_max-u_img)*color_21;
 
-        auto color=(v_img-v_min)*color1+(v_max-v_img)*color2;
+        auto color=(v_img-v_min)*color2+(v_max-v_img)*color1;
 
         return Eigen::Vector3f(color[0], color[1], color[2]);
     }
